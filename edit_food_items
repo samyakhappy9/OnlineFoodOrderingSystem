@@ -1,8 +1,8 @@
 <?php
-include('session_m.php');
+include('session_m.php');//session start for manager
 
 if(!isset($login_session)){
-header('Location: managerlogin.php'); 
+header('Location: managerlogin.php'); //redirecting to managerlogin page
 }
 
 ?>
@@ -18,6 +18,7 @@ header('Location: managerlogin.php');
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript">
+  <!--Javascript function to alert about data updated successfully-->
     function display_alert()
     {
       alert("Data Updated Successfully...!!!");
@@ -124,7 +125,7 @@ header('Location: managerlogin.php');
       <h3>Click On Menu <br><br></h3>
     </div>
     <?php
-   
+   //getting details of food items
  
 
     if (isset($_GET['submit'])) {
@@ -133,11 +134,12 @@ header('Location: managerlogin.php');
     $price = $_GET['dprice'];
     $description = $_GET['ddescription'];
 
-
+//query to update food items
     $query = mysqli_query($conn, "UPDATE food set
     name='$name', price='$price',
     description='$description' where F_ID='$F_ID'");
     }
+    //query to display food items
     $query = mysqli_query($conn, "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check') ORDER BY F_ID");
     while ($row = mysqli_fetch_array($query)) {
 
@@ -175,6 +177,7 @@ header('Location: managerlogin.php');
           <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> EDIT YOUR FOOD ITEMS HERE </h3>
 
           <div class="form-group">
+          <!--Designing form to edit food items in the menu-->
             <input class='input' type='hidden' name="dfid" value=<?php echo $row1['F_ID'];  ?> />
           </div>
 
@@ -215,7 +218,7 @@ header('Location: managerlogin.php');
 
 
 <?php
-mysqli_close($conn);
+mysqli_close($conn);//connection closed
 ?>
 </div>
 </div>
