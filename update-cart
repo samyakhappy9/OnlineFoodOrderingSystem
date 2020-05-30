@@ -2,11 +2,11 @@
 
 if(!isset($_SESSION))
   {
-    session_start();
+    session_start();//start session
   }
 
 include 'connection.php';
-$conn = Connect();
+$conn = Connect();//connecting database
 
 $F_ID = $_GET['id'];
 $action = $_GET['action'];
@@ -14,7 +14,7 @@ $action = $_GET['action'];
 
 
 
-$sql = "SELECT quantity FROM food WHERE F_id = ".$F_ID;
+$sql = "SELECT quantity FROM food WHERE F_id = ".$F_ID;//sql query to select particular food item
 
 $result = mysqli_query($conn, $sql);
 
@@ -25,12 +25,12 @@ if($result){
 
     switch($action) {
 
-      case "add":
+      case "add"://adding element into cart
       if($_SESSION['cart'][$F_ID]+1 <= $row["quantity"])
         $_SESSION['cart'][$F_ID]++;
       break;
 
-      case "remove":
+      case "remove"://removing element from cart
       $_SESSION['cart'][$F_ID]--;
       if($_SESSION['cart'][$F_ID] == 0)
         unset($_SESSION['cart'][$F_ID]);
@@ -44,6 +44,6 @@ if($result){
 
 
 
-header("location:cart.php");
+header("location:cart.php");//redirecting to cart.php page
 
 ?>
