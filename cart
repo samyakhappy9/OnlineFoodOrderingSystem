@@ -1,8 +1,8 @@
 <?php
-session_start();
-require 'connection.php';
+session_start();//session start
+require 'connection.php';//connecting database
 $conn = Connect();
-if(!isset($_SESSION['login_user2'])){
+if(!isset($_SESSION['login_user2'])){//if customer not logged in take to customerlogin.php page
 header("location: customerlogin.php"); 
 }
 ?>
@@ -13,10 +13,10 @@ header("location: customerlogin.php");
     <title> Cart | Royal Dine</title>
   </head>
 
-  <link rel="stylesheet" type = "text/css" href ="css/cart.css">
+  <link rel="stylesheet" type = "text/css" href ="css/cart.css"><!--connecting css file-->
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script><!--connecting bootstrap predefined file-->
 
   <body>
 
@@ -66,7 +66,7 @@ header("location: customerlogin.php");
           </ul>
 
 <?php
-if(isset($_SESSION['login_user1'])){
+if(isset($_SESSION['login_user1'])){//if manager is logged in
 
 ?>
 
@@ -79,6 +79,7 @@ if(isset($_SESSION['login_user1'])){
 <?php
 }
 else if (isset($_SESSION['login_user2'])) {
+//if customer is logged in
   ?>
            <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
@@ -97,7 +98,7 @@ else if (isset($_SESSION['login_user2'])) {
           </ul>
   <?php        
 }
-else {
+else {//if customer needs to sign up 
 
   ?>
 
@@ -113,6 +114,7 @@ else {
             <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
               <ul class="dropdown-menu">
               <li> <a href="customerlogin.php"> User Login</a></li>
+              <!--After sign up customer needs to login again-->
               <li> <a href="managerlogin.php"> Manager Login</a></li>
               <li> <a href="#"> Admin Login</a></li>
             </ul>
@@ -131,7 +133,7 @@ else {
 
     
 <?php
-if(!empty($_SESSION["cart"]))
+if(!empty($_SESSION["cart"]))//when there is any item in cart
 {
   ?>
   <div class="container">
@@ -145,7 +147,7 @@ if(!empty($_SESSION["cart"]))
     <div class="table-responsive" style="padding-left: 100px; padding-right: 100px;" >
 <table class="table table-striped">
   <thead class="thead-dark">
-<tr>
+<tr><!--Table for food cart-->
 <th width="40%">Food Name</th>
 <th width="10%">Quantity</th>
 <th width="20%">Price Details</th>
@@ -162,6 +164,7 @@ foreach($_SESSION["cart"] as $keys => $values)
 {
 ?>
 <tr>
+<!--getting session variable values-->
 <td><?php echo $values["food_name"]; ?></td>
 <td><?php echo $values["food_quantity"] ?></td>
 <td>&#8377; <?php echo $values["food_price"]; ?></td>
@@ -169,7 +172,7 @@ foreach($_SESSION["cart"] as $keys => $values)
 <td><a href="cart.php?action=delete&id=<?php echo $values["food_id"]; ?>"><span class="text-danger">Remove</span></a></td>
 </tr>
 <?php 
-$total = $total + ($values["food_quantity"] * $values["food_price"]);
+$total = $total + ($values["food_quantity"] * $values["food_price"]);//calculating total price need to be paid
 }
 ?>
 <tr>
@@ -186,7 +189,7 @@ $total = $total + ($values["food_quantity"] * $values["food_price"]);
 <?php
 }
 if(empty($_SESSION["cart"]))
-{
+{//if cart is empty then 
   ?>
   <div class="container">
       <div class="jumbotron">
@@ -205,7 +208,7 @@ if(empty($_SESSION["cart"]))
 <?php
 
 
-if(isset($_POST["add"]))
+if(isset($_POST["add"]))//add more items into cart
 {
 if(isset($_SESSION["cart"]))
 {
@@ -214,7 +217,7 @@ if(!in_array($_GET["id"], $item_array_id))
 {
 $count = count($_SESSION["cart"]);
 
-$item_array = array(
+$item_array = array(//getting session variable values
 'food_id' => $_GET["id"],
 'food_name' => $_POST["hidden_name"],
 'food_price' => $_POST["hidden_price"],
@@ -244,14 +247,14 @@ $_SESSION["cart"][0] = $item_array;
 }
 if(isset($_GET["action"]))
 {
-if($_GET["action"] == "delete")
+if($_GET["action"] == "delete")/to delete any item from cart
 {
 foreach($_SESSION["cart"] as $keys => $values)
 {
 if($values["food_id"] == $_GET["id"])
 {
 unset($_SESSION["cart"][$keys]);
-echo '<script>alert("Food has been removed")</script>';
+echo '<script>alert("Food has been removed")</script>';//javascript alert
 echo '<script>window.location="cart.php"</script>';
 }
 }
