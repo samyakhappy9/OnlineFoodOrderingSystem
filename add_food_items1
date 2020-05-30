@@ -1,16 +1,16 @@
 <?php
 
-include('session_m.php');
+include('session_m.php');//connecting manager session
 
-if(!isset($login_session)){
+if(!isset($login_session)){//if manager not logged in take back to managerlogin.php page
 header('Location: managerlogin.php'); 
 }
 
 
 
-$name = $conn->real_escape_string($_POST['name']);
-$price = $conn->real_escape_string($_POST['price']);
-$description = $conn->real_escape_string($_POST['description']);
+$name = $conn->real_escape_string($_POST['name']);//getting name of food item from database
+$price = $conn->real_escape_string($_POST['price']);//getting price of food item from database
+$description = $conn->real_escape_string($_POST['description']);//getting description of food item from database
 
 
 // Storing Session
@@ -111,11 +111,11 @@ if (!$success){
 	
 }
 else {
-	echo "SUCCESS";
+	echo "SUCCESS";//if succesful take control to add_food_items.php page
 	header('Location: add_food_items.php');
 }
 
-$conn->close();
+$conn->close();//connection close
 
 
 ?>
