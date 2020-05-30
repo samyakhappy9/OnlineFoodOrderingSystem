@@ -1,11 +1,12 @@
 <?php
-session_start();
+session_start();//session start
 ?>
 
 <html>
 
   <head>
     <title> About | Royal Dine</title>
+    <!--This page directs to page describing information about the restaurant-->
 <style>
 * {
   box-sizing: border-box;
@@ -24,7 +25,7 @@ font-size:22px;
 }
 
 .containers img {vertical-align: middle;}
-
+<!--code to write text on image-->
 .containers .content {
   position: absolute;
   top:0;
@@ -56,7 +57,7 @@ height:250px;
         scrollFunction()
       };
 
-      function scrollFunction(){
+      function scrollFunction(){//javascript function to scroll the windows
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
           document.getElementById("myBtn").style.display = "block";
         } else {
@@ -69,7 +70,7 @@ height:250px;
         document.documentElement.scrollTop = 0;
       }
     </script>
-
+<!--Navigation bar design-->
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -90,7 +91,7 @@ height:250px;
           </ul>
 
 <?php
-if(isset($_SESSION['login_user1'])){
+if(isset($_SESSION['login_user1'])){//for manager login
 
 ?>
 
@@ -102,7 +103,7 @@ if(isset($_SESSION['login_user1'])){
           </ul>
 <?php
 }
-else if (isset($_SESSION['login_user2'])) {
+else if (isset($_SESSION['login_user2'])) {//for customer login
   ?>
            <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_user2']; ?> </a></li>
