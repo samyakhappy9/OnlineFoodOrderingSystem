@@ -1,8 +1,8 @@
 <?php
-session_start();
+session_start();//session start
 require 'connection.php';
 $conn = Connect();
-if(!isset($_SESSION['login_user2']) || !isset($_SESSION['cart'])){
+if(!isset($_SESSION['login_user2']) || !isset($_SESSION['cart'])){//when user is logged in then only make online payment
 header("location: customerlogin.php"); 
 }
 
@@ -14,9 +14,9 @@ header("location: customerlogin.php");
     <title> Online Payment | Royal Dine</title>
   </head>
 
-  <link rel="stylesheet" type = "text/css" href ="css/COD.css">
+  <link rel="stylesheet" type = "text/css" href ="css/COD.css"><!--calling css file-->
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script><!--calling javascript file-->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
   <body>
