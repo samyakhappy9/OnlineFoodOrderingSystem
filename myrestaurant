@@ -1,5 +1,5 @@
 <?php
-include('session_m.php');
+include('session_m.php');//session for manager
 
 if(!isset($login_session)){
 header('Location: managerlogin.php'); // Redirecting To Home Page
@@ -96,10 +96,10 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
 
     	<div class="list-group">
     		<a href="myrestaurant.php" class="list-group-item active">My Restaurant</a>
-    		<a href="view_food_items.php" class="list-group-item ">View Food Items</a>
-    		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a>
-    		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a>
-    		<a href="delete_food_items.php" class="list-group-item ">Delete Food Items</a>
+    		<a href="view_food_items.php" class="list-group-item ">View Food Items</a><!--view food items -->
+    		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a><!--add food items -->
+    		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a><!--edit food items -->
+    		<a href="delete_food_items.php" class="list-group-item ">Delete Food Items</a><!--delete food items -->
     	</div>
     </div>
     
@@ -109,7 +109,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
         <form action="myrestaurant1.php" method="POST">
         <br style="clear: both">
           <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> MY RESTAURANT</h3>
-
+<!--Designing form for adding restaurant details by the manager-->
           <div class="form-group">
             <input type="text" class="form-control" id="name" name="name" placeholder="Your Restaurant's Name" required="">
           </div>
