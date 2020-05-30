@@ -140,9 +140,10 @@ else {
         </div>
         <br>
 
-<h2 class="text-center"> Thank you for Ordering at Royal Dine! The ordering process is now complete.</h2>
+<h2 class="text-center"> Thank you for Ordering at Royal Dine! The ordering process is now complete.</h2><!--order placed successfully-->
 
 <?php 
+//generating a random order number
   $num1 = rand(100000,999999); 
   $num2 = rand(100000,999999); 
   $num3 = rand(100000,999999);
