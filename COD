@@ -1,8 +1,8 @@
 <?php
-session_start();
-require 'connection.php';
+session_start();//beginning of session
+require 'connection.php';//calling connection.php file
 $conn = Connect();
-if(!isset($_SESSION['login_user2'])){
+if(!isset($_SESSION['login_user2'])){//checking if user is logged in or not
 header("location: customerlogin.php"); 
 }
 
@@ -15,9 +15,9 @@ unset($_SESSION["cart"]);
     <title> Cart | Royal Dine</title>
   </head>
 
-  <link rel="stylesheet" type = "text/css" href ="css/COD.css">
+  <link rel="stylesheet" type = "text/css" href ="css/COD.css"><!--calling css file-->
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script><!--calling javascript library-->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
   <body>
@@ -59,7 +59,7 @@ unset($_SESSION["cart"]);
           <a class="navbar-brand" href="index.php">Royal Dine</a>
         </div>
 
-        <div class="collapse navbar-collapse " id="myNavbar">
+        <div class="collapse navbar-collapse " id="myNavbar"><!--defining navigation bar-->
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="aboutus.php">About</a></li>
