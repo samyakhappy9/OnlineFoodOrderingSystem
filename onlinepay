@@ -144,7 +144,7 @@ else {
             <div class="credit-card-div">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-
+<!--Details to be entered for online payment-->
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <h5 class="text-muted"> Credit Card Number</h5>
