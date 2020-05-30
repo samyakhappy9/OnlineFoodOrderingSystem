@@ -1,8 +1,8 @@
 <?php
-session_start(); 
+session_start(); //sssion start
 $error=''; 
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {//checking for valid username and password
 if (empty($_POST['username']) || empty($_POST['password'])) {
 $error = "Username or Password is invalid";
 }
