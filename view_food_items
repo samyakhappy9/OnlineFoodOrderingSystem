@@ -1,5 +1,5 @@
 <?php
-include('session_m.php');
+include('session_m.php');//connecting to manager login session
 
 if(!isset($login_session)){
 header('Location: managerlogin.php'); // Redirecting To Home Page
@@ -80,7 +80,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
 <div class="container">
     <div class="jumbotron">
      <h1>Hello Manager! </h1>
-     <p>Manage all your restaurant from here</p>
+     <p>Manage your restaurant from here</p>
 
     </div>
     </div>
