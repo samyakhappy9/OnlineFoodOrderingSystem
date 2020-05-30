@@ -1,7 +1,7 @@
     <?php
-include('login_u.php'); 
+include('login_u.php'); //connecting login_u.php page
 
-if(isset($_SESSION['login_user2'])){
+if(isset($_SESSION['login_user2'])){//if customer logged in succesfully take to foodzone
 header("location: foodlist.php"); 
 }
 ?>
@@ -102,7 +102,7 @@ header("location: foodlist.php");
         <div class="panel-body">
           
         <form action="" method="POST">
-          
+          <!--Designing form for customer login-->
         <div class="row">
           <div class="form-group col-xs-12">
             <label for="username"><span class="text-danger" style="margin-right: 5px;">*</span> Username: </label>
