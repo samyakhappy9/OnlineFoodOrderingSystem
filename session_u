@@ -1,8 +1,8 @@
 <?php
 require 'connection.php';
-$conn = Connect();
+$conn = Connect();//connecting database
 
-session_start();
+session_start();//session start
 
 $user_check=$_SESSION['login_user2'];
 
