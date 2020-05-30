@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-if(!isset($_SESSION['login_user2'])){
+//session start
+if(!isset($_SESSION['login_user2'])){//if customer is logged in he can access the food zone 
 header("location: customerlogin.php"); 
 }
 
@@ -22,12 +22,12 @@ header("location: customerlogin.php");
   <body>
 
   
-    <button onclick="topFunction()" id="myBtn" title="Go to top">
-      <span class="glyphicon glyphicon-chevron-up"></span>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><!--clicking this button leads to top of the page-->
+      <span class="glyphicon glyphicon-chevron-up"></span><!--boostrap class-->
     </button>
   
     <script type="text/javascript">
-      window.onscroll = function()
+      window.onscroll = function()<!--javascript function for window scroll-->
       {
         scrollFunction()
       };
@@ -47,6 +47,7 @@ header("location: customerlogin.php");
     </script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top navigation-clean-search" role="navigation">
+    <!--bootstrap class for navigation bar-->
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
@@ -135,6 +136,7 @@ else {
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
+    <!--setting images as slides-->
 
       <div class="item active">
       <img src="images/slide001.jpg" style="width:100%;">
@@ -165,10 +167,11 @@ else {
    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="sr-only">Previous</span>
+      <!--return to first slide-->
     </a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
+      <span class="sr-only">Next</span><!--Move to next slide-->
     </a>
     </div>
 
@@ -210,7 +213,9 @@ if (mysqli_num_rows($result) > 0)
 <h4 class="text-dark"><?php echo $row["name"]; ?></h4>
 <h5 class="text-info"><?php echo $row["description"]; ?></h5>
 <h5 class="text-danger">&#8377; <?php echo $row["price"]; ?>/-</h5>
-<h5 class="text-info">Quantity: <input type="number" min="1" max="25" name="quantity" class="form-control" value="1" style="width: 60px;"> </h5>
+<h5 class="text-info">Quantity: <input type="number" min="1" max="25" name="quantity" class="form-control" value="1" style="width: 60px;"
+> 
+</h5><!--Name,price of ordered food item called from database table and displayed in the cart-->
 <input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>">
 <input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>">
 <input type="hidden" name="hidden_RID" value="<?php echo $row["R_ID"]; ?>">
@@ -241,7 +246,7 @@ else
 
   <div class="container">
     <div class="jumbotron">
-      <center>
+      <center><!--if no food item is available in the food cart-->
          <label style="margin-left: 5px;color: red;"> <h1>Oops! No food is available.</h1> </label>
         <p>Stay Hungry...! :P</p>
       </center>
