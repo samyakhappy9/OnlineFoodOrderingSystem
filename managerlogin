@@ -102,7 +102,7 @@ header("location: myrestaurant.php"); //Redirecting to myrestaurant Page
         <div class="panel-body">
           
         <form action="" method="POST">
-          
+          <!--Designing form for manager login-->
         <div class="row">
           <div class="form-group col-xs-12">
             <label for="username"><span class="text-danger" style="margin-right: 5px;">*</span> Username: </label>
@@ -136,6 +136,7 @@ header("location: myrestaurant.php"); //Redirecting to myrestaurant Page
           </div>
 
         </div>
+        <!--if not signed up then redirecting to sign up page-->
         <label style="margin-left: 5px;">or</label> <br>
        <label style="margin-left: 5px;"><a href="managersignup.php">Create a new account.</a></label>
        
