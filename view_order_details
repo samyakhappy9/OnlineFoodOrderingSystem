@@ -1,7 +1,7 @@
 <?php
-include('session_m.php');
+include('session_m.php');//connecting session for manager
 
-if(!isset($login_session)){
+if(!isset($login_session)){//if manager not logged in then asked to login
 header('Location: managerlogin.php'); 
 }
 
@@ -80,7 +80,7 @@ header('Location: managerlogin.php');
 <div class="container">
     <div class="jumbotron">
      <h1>Hello Manager! </h1>
-     <p>Manage all your restaurant from here</p>
+     <p>Manage  your restaurant from here</p>
 
     </div>
     </div>
@@ -97,11 +97,11 @@ header('Location: managerlogin.php');
 
     	<div class="list-group">
     		<a href="myrestaurant.php" class="list-group-item ">My Restaurant</a>
-    		<a href="view_food_items.php" class="list-group-item">View Food Items</a>
-    		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a>
-    		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a>
-    		<a href="delete_food_items.php" class="list-group-item ">Delete Food Items</a>
-        <a href="view_order_details.php" class="list-group-item active">View Order Details</a>
+    		<a href="view_food_items.php" class="list-group-item">View Food Items</a><!--view food items -->
+    		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a><!--add food items -->
+    		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a><!--edit food items -->
+    		<a href="delete_food_items.php" class="list-group-item ">Delete Food Items</a><!--delete food items -->
+        <a href="view_order_details.php" class="list-group-item active">View Order Details</a><!--view details of food ordered by different customers -->
     	</div>
     </div>
     
@@ -133,6 +133,7 @@ if (mysqli_num_rows($result) > 0)
 
   <table class="table table-striped">
     <thead class="thead-dark">
+    <!--Table for ordered food-->
       <tr>
         <th>  </th>
         <th> Order ID </th>
@@ -152,6 +153,7 @@ if (mysqli_num_rows($result) > 0)
 
   <tbody>
     <tr>
+    <!--displaying ordered food items after calling from database-->
       <td> <span class="glyphicon glyphicon-menu-right"></span> </td>
       <td><?php echo $row["order_ID"]; ?></td>
       <td><?php echo $row["F_ID"]; ?></td>
