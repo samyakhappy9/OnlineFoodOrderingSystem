@@ -1,8 +1,9 @@
 <?php
-session_start();
+session_start();//sesion start
 ?>
 
 <html>
+<!--Contact us page allows customers to send their feedback and queries-->
 
   <head>
     <title> Contact | Royal Dine</title>
@@ -123,7 +124,7 @@ else {
       </div>
     </nav>
     <br>
-
+<!header for contact us form-->
     <div class="heading">
      <strong>Want to contact <span class="edit"> Royal Dine</span>?</strong>
      <br>
@@ -136,10 +137,11 @@ else {
     <div class="col-md-5" style="float: none; margin: 0 auto;">
       <div class="form-area">
         <form method="post" action="">
+        <!--Designing the form-->
         <br style="clear: both">
           <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> Contact Form</h3>
 
-          <div class="form-group">
+          <div class="form-group"><!--Compulsory fields designed  through required tag-->
             <input type="text" class="form-control" id="name" name="name" placeholder="Name" required autofocus="">
           </div>
 
@@ -170,7 +172,7 @@ else {
 
     <?php
 if (isset($_POST['submit'])){
-require 'connection.php';
+require 'connection.php';//connecting to database to send form elements
 $conn = Connect();
 
 $Name = $conn->real_escape_string($_POST['name']);
@@ -178,15 +180,16 @@ $Email_Id = $conn->real_escape_string($_POST['email']);
 $Mobile_No = $conn->real_escape_string($_POST['mobile']);
 $Subject = $conn->real_escape_string($_POST['subject']);
 $Message = $conn->real_escape_string($_POST['message']);
-
+//sql query to insert elements data into the table contact
 $query = "INSERT into contact(Name,Email,Mobile,Subject,Message) VALUES('$Name','$Email_Id','$Mobile_No','$Subject','$Message')";
 $success = $conn->query($query);
 
 if (!$success){
+//if data is not successfully entered
   die("Couldnt enter data: ".$conn->error);
 }
 
-$conn->close();
+$conn->close();//connection closed
 }
 ?>
 
