@@ -84,7 +84,7 @@
    <p>Get started by creating your account</p>
     </div>
     </div>
-
+<!--Designing form for customer sign up -->
 
 
     <div class="container" style="margin-top: 4%; margin-bottom: 2%;">
@@ -182,7 +182,7 @@
 
         </div>
         <label style="margin-left: 5px;">or</label> <br>
-       <label style="margin-left: 5px;"><a href="customerlogin.php">Have an account? Login.</a></label>
+       <label style="margin-left: 5px;"><a href="customerlogin.php">Have an account? Login.</a></label><!--Redirecting to login page after sign up-->
 
         </form>
 
