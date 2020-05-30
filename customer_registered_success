@@ -66,9 +66,9 @@
 
 <?php
 
-require 'connection.php';//onnecting database
+require 'connection.php';//connecting database
 $conn = Connect();
-
+//getting user details
 $fullname = $conn->real_escape_string($_POST['fullname']);
 $username = $conn->real_escape_string($_POST['username']);
 $email = $conn->real_escape_string($_POST['email']);
@@ -92,7 +92,7 @@ $conn->close();//connection closed
 	<div class="jumbotron" style="text-align: center;">
 		<h2> <?php echo "Welcome $fullname!" ?> </h2><!--When a customer is successfully registered-->
 		<h1>Your account has been created.</h1>
-		<p>Login Now from <a href="customerlogin.php">HERE</a></p>
+		<p>Login Now from <a href="customerlogin.php">HERE</a></p><!--Now login succesfully-->
 	</div>
 </div>
 
